@@ -3,4 +3,67 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="gmf_blue">#3498db</color>
+    <color name="gmf_red">#E74C3C</color>
+    <color name="gmf_yellow">#FFDE00</color>
+    <color name="gmf_white">#ffffff</color>
+    <color name="gmf_grey">#686868</color>
+    <color name="gmf_light_grey">#bebebe</color>
+    <color name="gmf_black">#222222</color>
+    <color name="gmf_green">#27AE60</color>
+    <color name="gmf_dark_layer">#19000000</color>›
+    <color name="gmf_purple">#9B59B6</color>
+    <color name="gmf_orange">#FFF5A623</color>
+    <color name="gmf_status_bar_black">#FF4A4A4A</color>
+
+    <color name="gmf_text_black">#333333</color>
+    <color name="gmf_text_grey">#66000000</color>
+    <color name="gmf_text_light_grey">#bebebe</color>
+    <color name="gmf_text_red">#E74C3C</color>
+    <color name="gmf_text_green">#27AE60</color>
+    <color name="gmf_text_white">#ffffff</color>
+    <color name="gmf_text_yellow">#FFDE00</color>
+    <color name="gmf_text_blue">#3498db</color>
+    <color name="gmf_text_hint">#BEBEBE</color>
+    <color name="gmf_text_purple">#9B59B6</color>
+    <color name="gmf_text_gold">#FFDE00</color>
+    <color name="gmf_text_silver">#95A5A6</color>
+    <color name="gmf_text_copper">#C7A165</color>
+    <color name="gmf_text_iron">#999999</color>
+
+    <color name="gmf_line_yellow">#FFDE00</color>
+    <color name="gmf_line_blue">#3498DB</color>
+    <color name="gmf_line_purple">#9B59B6</color>
+    <color name="gmf_line_grey">#33000000</color>
+
+    <color name="gmf_button_white_normal">#ffffff</color>
+    <color name="gmf_button_white_pressed">#cccccc</color>
+    <color name="gmf_button_blue_normal">#4A90E2</color>
+    <color name="gmf_button_blue_pressed">#4281C9</color>
+    <color name="gmf_button_yellow_normal">#FFDE00</color>
+    <color name="gmf_button_yellow_pressed">#E6C700</color>
+    <color name="gmf_button_orange_normal">#F5A623</color>
+    <color name="gmf_button_orange_pressed">#DB931F</color>
+    <color name="gmf_button_grey_normal">#E2E2E2</color>
+    <color name="gmf_button_grey_pressed">#C0C0C0</color>
+    <color name="gmf_button_black_normal">#222222</color>
+    <color name="gmf_button_black_pressed">#000000</color>
+    <color name="gmf_button_red_normal">#DC4E3B</color>
+    <color name="gmf_button_red_pressed">#CF4536</color>
+    <color name="gmf_button_disable">#E5E5E5</color>
+
+    <color name="gmf_act_bg">#F2F2F2</color>
+    <color name="gmf_act_bg_dim">#88333333</color>
+    <color name="gmf_sep_Line">#0D000000</color>
+    <color name="gmf_border_line">#1A222222</color>
+    <color name="gmf_progress_bg">#F5F5F5</color>
+    <color name="gmf_keyboard_header_bg">#f2f2f2</color>
+
+    <color name="gmf_plain_button_bg_normal_light">@android:color/transparent</color>
+    <color name="gmf_plain_button_bg_pressed_light">#66999999</color>
+    <color name="gmf_plain_button_bg_disable_light">#1A999999</color>
+    <color name="gmf_plain_button_bg_normal_dark">@android:color/transparent</color>
+    <color name="gmf_plain_button_bg_pressed_dark">#66CCCCCC</color>
+    <color name="gmf_plain_button_bg_disable_dark">#1ACCCCCC</color>
 </resources>

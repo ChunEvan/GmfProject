@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/gmf_white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp">
+
+                <widget.MainTabView
+                    android:id="@+id/tab_main"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:icon="@drawable/sel_tab_main_home"
+                    app:title="首页"/>
+
+                <widget.MainTabView
+                    android:id="@+id/tab_stock"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:icon="@drawable/sel_tab_main_stock"
+                    app:title="股票"/>
+
+                <widget.MainTabView
+                    android:id="@+id/tab_invest"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:icon="@drawable/sel_tab_main_invest"
+                    app:title="投资"/>
+
+                <widget.MainTabView
+                    android:id="@+id/tab_topic"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:icon="@drawable/sel_tab_main_topic"
+                    app:title="话题"/>
+
+                <widget.MainTabView
+                    android:id="@+id/tab_mine"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:icon="@drawable/sel_tab_main_mine"
+                    app:title="我的"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="56dp"/>
+
+        <ImageView
+            android:id="@+id/image_regist_guide"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="56dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/frame_register"/>
+
+    </FrameLayout>
+
+</LinearLayout>

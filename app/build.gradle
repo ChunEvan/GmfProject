@@ -1,26 +1,157 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
 
+
+Properties properties = new Properties();
+properties.load(project.rootProject.file("local.properties").newDataInputStream());
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.1"
-
+    compileSdkVersion "$BUILD_COMPILE_SDK_VERSION".toInteger()
+    buildToolsVersion "$BUILD_TOOLS_VERSION"
+    android {
+        useLibrary 'org.apache.http.legacy'
+    }
     defaultConfig {
-        applicationId "gmf.com.myapplication"
-        minSdkVersion 15
-        targetSdkVersion 24
+        applicationId "gmf.com.evan"
+        minSdkVersion "$BUILD_MIN_SDK_VERSION".toInteger()
+        targetSdkVersion "$BUILD_TARGET_SDK_VERSION".toInteger()
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+        manifestPlaceholders = [gmf_channel_id: "official"]
     }
+
+    signingConfigs {
+        debug {
+        }
+
+        release {
+            keyAlias properties.getProperty('release_store_keyAlias')
+            keyPassword properties.getProperty('release_store_keyPassword')
+            storeFile project.rootProject.file("release.keystore")
+            storePassword properties.getProperty('release_store_storePassword')
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            applicationIdSuffix ".GMFund"
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
+        pro {
+            initWith(android.buildTypes.release)
+            applicationIdSuffix ".GMFundPro"
+        }
+        debug {
+            minifyEnabled false
+            applicationIdSuffix ".GMFund"
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            signingConfig signingConfigs.release
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    applicationVariants.all { item ->
+        item.outputs.each { variant ->
+            File outputFile = variant.outputFile
+            if (outputFile != null && outputFile.name.endsWith('release.apk')) {
+                variant.outputFile = new File(new File(outputFile.parent), "cpman" + "-v" + defaultConfig.versionName + "." + defaultConfig.versionCode + "-" + variant.name.replaceAll("Release", "") + ".apk")
+            } else if (outputFile != null && outputFile.name.endsWith('pro.apk')) {
+                variant.outputFile = new File(new File(outputFile.parent), "cpman-pro" + "-v" + defaultConfig.versionName + "." + defaultConfig.versionCode + "-" + variant.name.replaceAll("PRO", "") + ".apk")
+            }
+        }
+    }
+
+//    productFlavors {
+//
+//        official {
+//            manifestPlaceholders = [gmf_channel_id: "official"]
+//        }
+//        qihoo_360 {
+//            manifestPlaceholders = [gmf_channel_id: "qihoo_360"]
+//        }
+//    }
+
+    productFlavors {
+        official {
+        }
+//        qihoo_360 {
+//        }
+//        wandoujia {
+//        }
+//        yingyongbao {
+//        }
+//        baidu {
+//        }
+//        play {
+//        }
+//        gfan {
+//        }
+//        xiaomi {
+//        }
+//        huawei {
+//        }
+//        meizu {
+//        }
+//        oppo {
+//        }
+//        vivo {
+//        }
+//        lenovo {
+//        }
+    }
+
+    productFlavors.findAll().each { flavor ->
+        flavor.manifestPlaceholders = [gmf_channel_id: flavor.name.toString()]
+    }
+
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath "me.tatarka:gradle-retrolambda:$RETROLAMBDA_VERSION"
     }
 }
 
+repositories {
+    // ...
+    maven { url "https://jitpack.io" }
+}
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:24.2.0'
+    compile "com.android.support:multidex:$MULTIDEX_VERSION"
+    compile "com.android.support:appcompat-v7:$ANDROID_SUPPORT_VERSION"
+    compile "com.android.support:design:$ANDROID_SUPPORT_VERSION"
+    compile "com.android.support:cardview-v7:$ANDROID_SUPPORT_VERSION"
+    compile "com.android.support:recyclerview-v7:$ANDROID_SUPPORT_VERSION"
+    compile "com.android.support:percent:$ANDROID_SUPPORT_VERSION"
+    compile "com.android.support:palette-v7:$ANDROID_SUPPORT_VERSION"
+    compile "com.orhanobut:logger:$LOGGER_VERSION"
+    compile "io.paperdb:paperdb:$PAPERDB_VERSION"
+    compile "com.facebook.fresco:fresco:$FRESCO_VERSION"
+    compile "com.soundcloud.android:android-crop:$ANDROID_CROP_VERSION"
+    compile "com.squareup.okhttp3:okhttp:$OKHTTP_VERSION"
+    compile "com.github.franmontiel:PersistentCookieJar:$PERSISTENT_COOKIE_JAR"
+    compile "com.google.code.gson:gson:$GSON_VERSION"
+    compile "io.reactivex:rxandroid:$RXANDROID_VERSION"
+    compile "com.annimon:stream:$STREAM"
 }

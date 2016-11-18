@@ -2,4 +2,11 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="gmf_dialog_width">300dp</dimen>
+    <dimen name="gmf_sliding_menu_width">300dp</dimen>
+
+    <dimen name="gmf_plain_button_width_small">88dp</dimen>
+    <dimen name="gmf_plain_button_height_small">36dp</dimen>
+    <dimen name="gmf_plain_button_text_size_small">16sp</dimen>
 </resources>

@@ -1,11 +1,98 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@style/defaultAnimation</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+
+    <style name="defaultAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@null</item>
+        <item name="android:activityOpenExitAnimation">@null</item>
+        <item name="android:activityCloseEnterAnimation">@null</item>
+        <item name="android:activityCloseExitAnimation">@null</item>
+    </style>
+
+    <item name="toolbar" type="id"/>
+    <item name="toolbarTitle" type="id"/>
+    <dimen name="toolbarBtnSize">@dimen/abc_action_bar_default_height_material</dimen>
+
+    <style name="CustomizeToolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:id">@id/toolbar</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/abc_action_bar_default_height_material</item>
+        <item name="android:background">@color/gmf_status_bar_black</item>
+    </style>
+
+    <style name="CustomizeToolbarTitle">
+
+        <item name="android:id">@id/toolbarTitle</item>
+        <item name="android:textColor">@color/gmf_text_white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_gravity">left|center_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:gravity">left|center_vertical</item>
+
+    </style>
+
+    <item name="gmf_status_bar_layer" type="id"/>
+
+    <style name="GMFDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimAmount">0.7</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="GMFRoundButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <style name="GMFRoundButton.Yellow">
+        <item name="android:background">@drawable/sel_round_button_yellow_bg</item>
+        <item name="android:textColor">@drawable/sel_button_text_dark</item>
+    </style>
+
+    <style name="GMFButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <style name="GMFPlainButton" parent="GMFButton">
+        <item name="android:background">@null</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="GMFPlainButton.Black_Light">
+        <item name="android:textColor">@color/sel_plain_button_black_text</item>
+        <item name="android:background">@drawable/sel_plain_button_bg_light</item>
+    </style>
+
+    <style name="GMFPlainButton.Blue">
+        <item name="android:textColor">@color/sel_plain_button_blue_text</item>
+        <item name="android:background">@drawable/sel_plain_button_bg_light</item>
+    </style>
+
+    <!--<declare-styleable name="MainTabView">-->
+        <!--<attr name="title" format="string"/>-->
+        <!--<attr name="icon" format="reference"/>-->
+    <!--</declare-styleable>-->
+
+    <declare-styleable name="GMFProgressBar">
+        <attr name="gmf_pb_theme">
+            <enum name="dark" value="0"/>
+            <enum name="light" value="1"/>
+        </attr>
+    </declare-styleable>
 
 </resources>
